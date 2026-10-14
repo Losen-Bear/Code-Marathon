@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "ghiabcdefhelloadamhelloabcdefghi\n",
+    "expected": "7",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "merchant\n",
+    "expected": "1",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "repeated",
+    "input": "aaaaa",
+    "expected": "5",
+    "note": "补充边界或回归用例。"
+  }
+]

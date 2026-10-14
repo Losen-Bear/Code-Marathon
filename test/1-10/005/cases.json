@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "{{'E', 'E', 'S', 'S', 'S'},\n      {'S', 'S', 'E', 'B', 'S'},\n      {'S', 'E', 'B', 'S', 'E'},\n      {'S', 'S', 'B', 'S', 'S'},\n      {'S', 'E', 'S', 'B', 'E'}}\n",
+    "expected": "4",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "blocked",
+    "input": "{{'E','B','S','E'}}",
+    "expected": "1",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "all-enemies",
+    "input": "{{'E','E'}}",
+    "expected": "0",
+    "note": "补充边界或回归用例。"
+  }
+]

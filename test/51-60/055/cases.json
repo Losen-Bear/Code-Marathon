@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "3 3\nR L D\nU O E\nC S O\n4\nCODE\nSOLO\nRULES\nCOOL\n",
+    "expected": "CODE\nRULES",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "2 2\nG T\nO A\n4\nTOGGLE\nGOAT\nTOO\nGO\n",
+    "expected": "GO\nGOAT",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "diagonal",
+    "input": "2 2\nA X\nX B\n1\nAB",
+    "expected": "AB",
+    "note": "补充边界或回归用例。"
+  }
+]

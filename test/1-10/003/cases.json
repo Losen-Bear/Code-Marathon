@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "X[3Y]\n",
+    "expected": "XYYY",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "A[2BC[3D]]\n",
+    "expected": "ABCDDDBCDDD",
+    "note": "原输出ABCDDBCDCDD与重复解码规则矛盾；此用例检查按规则推导的结果。"
+  },
+  {
+    "name": "nested",
+    "input": "[2A[2BC]]",
+    "expected": "ABCBCABCBC",
+    "note": "补充边界或回归用例。"
+  }
+]

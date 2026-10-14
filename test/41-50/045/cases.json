@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "cat dog bat\ncabbage\n",
+    "expected": "-1",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "with example science\nthehat\n",
+    "expected": "3",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "reusable",
+    "input": "ab\naaaa",
+    "expected": "4",
+    "note": "补充边界或回归用例。"
+  }
+]

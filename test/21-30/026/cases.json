@@ -1,0 +1,23 @@
+[
+  {
+    "name": "sample-1",
+    "input": "6\n-1 0 1 2 -1 -4\n",
+    "expected": "-1 -1 2 \n-1 0 1 ",
+    "note": "去除题面展示前缀及解释文字；不改变数值。",
+    "strict": true
+  },
+  {
+    "name": "sample-2",
+    "input": "8\n-15 -5 10 5 3 8 -2 0\n",
+    "expected": "-15 5 10 \n-5 0 5 ",
+    "note": "去除题面展示前缀及解释文字；不改变数值。",
+    "strict": true
+  },
+  {
+    "name": "all-zero",
+    "input": "4\n0 0 0 0",
+    "expected": "0 0 0 ",
+    "note": "补充边界或回归用例。",
+    "strict": true
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "sample-1",
+    "input": "199100199\n",
+    "expected": "true",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "zero-sequence",
+    "input": "000",
+    "expected": "true",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "leading-zero",
+    "input": "1023",
+    "expected": "false",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "big-integer",
+    "input": "123456789012345678901234567890123456789024691357802469135780",
+    "expected": "true",
+    "note": "补充边界或回归用例。"
+  }
+]

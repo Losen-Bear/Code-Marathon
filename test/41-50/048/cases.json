@@ -1,0 +1,26 @@
+[
+  {
+    "name": "sample-1",
+    "input": "2,3\n",
+    "expected": "3",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "5,8\n",
+    "expected": "5",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "non-guillotine",
+    "input": "11,13",
+    "expected": "6",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "square",
+    "input": "13,13",
+    "expected": "1",
+    "note": "补充边界或回归用例。"
+  }
+]

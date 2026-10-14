@@ -1,0 +1,932 @@
+[
+  {
+    "name": "sample-1",
+    "input": "443\n",
+    "expected": "True",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "63\n",
+    "expected": "False",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "zero",
+    "input": "0",
+    "expected": "True",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "trailing-zero",
+    "input": "11",
+    "expected": "True",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "carry",
+    "input": "181",
+    "expected": "True",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "brute-1",
+    "input": "0",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-2",
+    "input": "1",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-3",
+    "input": "2",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-4",
+    "input": "3",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-5",
+    "input": "4",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-6",
+    "input": "5",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-7",
+    "input": "6",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-8",
+    "input": "7",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-9",
+    "input": "8",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-10",
+    "input": "9",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-11",
+    "input": "10",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-12",
+    "input": "11",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-13",
+    "input": "12",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-14",
+    "input": "13",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-15",
+    "input": "14",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-16",
+    "input": "15",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-17",
+    "input": "16",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-18",
+    "input": "17",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-19",
+    "input": "18",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-20",
+    "input": "19",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-21",
+    "input": "20",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-22",
+    "input": "21",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-23",
+    "input": "22",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-24",
+    "input": "23",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-25",
+    "input": "24",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-26",
+    "input": "25",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-27",
+    "input": "26",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-28",
+    "input": "27",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-29",
+    "input": "28",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-30",
+    "input": "29",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-31",
+    "input": "30",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-32",
+    "input": "31",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-33",
+    "input": "32",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-34",
+    "input": "33",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-35",
+    "input": "34",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-36",
+    "input": "35",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-37",
+    "input": "36",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-38",
+    "input": "37",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-39",
+    "input": "38",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-40",
+    "input": "39",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-41",
+    "input": "40",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-42",
+    "input": "41",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-43",
+    "input": "42",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-44",
+    "input": "43",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-45",
+    "input": "44",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-46",
+    "input": "45",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-47",
+    "input": "46",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-48",
+    "input": "47",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-49",
+    "input": "48",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-50",
+    "input": "49",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-51",
+    "input": "50",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-52",
+    "input": "51",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-53",
+    "input": "52",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-54",
+    "input": "53",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-55",
+    "input": "54",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-56",
+    "input": "55",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-57",
+    "input": "56",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-58",
+    "input": "57",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-59",
+    "input": "58",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-60",
+    "input": "59",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-61",
+    "input": "60",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-62",
+    "input": "61",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-63",
+    "input": "62",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-64",
+    "input": "63",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-65",
+    "input": "64",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-66",
+    "input": "65",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-67",
+    "input": "66",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-68",
+    "input": "67",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-69",
+    "input": "68",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-70",
+    "input": "69",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-71",
+    "input": "70",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-72",
+    "input": "71",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-73",
+    "input": "72",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-74",
+    "input": "73",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-75",
+    "input": "74",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-76",
+    "input": "75",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-77",
+    "input": "76",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-78",
+    "input": "77",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-79",
+    "input": "78",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-80",
+    "input": "79",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-81",
+    "input": "3132",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-82",
+    "input": "1378",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-83",
+    "input": "283",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-84",
+    "input": "6989",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-85",
+    "input": "3890",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-86",
+    "input": "3580",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-87",
+    "input": "4358",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-88",
+    "input": "7634",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-89",
+    "input": "6168",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-90",
+    "input": "7382",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-91",
+    "input": "315",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-92",
+    "input": "3647",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-93",
+    "input": "7464",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-94",
+    "input": "1289",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-95",
+    "input": "5725",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-96",
+    "input": "7352",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-97",
+    "input": "7787",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-98",
+    "input": "4240",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-99",
+    "input": "3272",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-100",
+    "input": "9644",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-101",
+    "input": "9039",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-102",
+    "input": "1647",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-103",
+    "input": "8493",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-104",
+    "input": "6196",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-105",
+    "input": "8649",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-106",
+    "input": "1064",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-107",
+    "input": "9740",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-108",
+    "input": "841",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-109",
+    "input": "2396",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-110",
+    "input": "8208",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-111",
+    "input": "3493",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-112",
+    "input": "9754",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-113",
+    "input": "1895",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-114",
+    "input": "8033",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-115",
+    "input": "5401",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-116",
+    "input": "128",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-117",
+    "input": "3637",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-118",
+    "input": "9907",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-119",
+    "input": "3363",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-120",
+    "input": "5345",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-121",
+    "input": "4296",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-122",
+    "input": "1741",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-123",
+    "input": "3481",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-124",
+    "input": "5867",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-125",
+    "input": "5378",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-126",
+    "input": "4392",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-127",
+    "input": "7947",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-128",
+    "input": "5960",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-129",
+    "input": "8870",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-130",
+    "input": "1739",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-131",
+    "input": "6246",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-132",
+    "input": "4929",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-133",
+    "input": "6278",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-134",
+    "input": "4841",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-135",
+    "input": "6655",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-136",
+    "input": "863",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-137",
+    "input": "2243",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-138",
+    "input": "2876",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-139",
+    "input": "5460",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-140",
+    "input": "2838",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-141",
+    "input": "7030",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-142",
+    "input": "4602",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-143",
+    "input": "7042",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-144",
+    "input": "9185",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-145",
+    "input": "2041",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-146",
+    "input": "6479",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-147",
+    "input": "2204",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-148",
+    "input": "333",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-149",
+    "input": "1837",
+    "expected": "True",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  },
+  {
+    "name": "brute-150",
+    "input": "9829",
+    "expected": "False",
+    "note": "固定随机种子20261014，期望值由独立穷举/直接定义计算。"
+  }
+]

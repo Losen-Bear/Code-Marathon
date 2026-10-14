@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "bewilderment\nbde\n",
+    "expected": "bewild",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "repeated",
+    "input": "aboad\naa",
+    "expected": "aboa",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "impossible",
+    "input": "a\naa",
+    "expected": "",
+    "note": "补充边界或回归用例。"
+  }
+]

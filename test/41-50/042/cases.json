@@ -1,0 +1,23 @@
+[
+  {
+    "name": "sample-1",
+    "input": "( 1 + 2 ) * 3\n",
+    "expected": "1 2 + 3 * ",
+    "note": "去除题面展示前缀及解释文字；不改变数值。",
+    "strict": true
+  },
+  {
+    "name": "sample-2",
+    "input": "( 70 + 30 ) * 20 + 10 / 2 - 3\n",
+    "expected": "70 30 + 20 * 10 2 / + 3 - ",
+    "note": "去除题面展示前缀及解释文字；不改变数值。",
+    "strict": true
+  },
+  {
+    "name": "left-associative",
+    "input": "8 / 2 / 2",
+    "expected": "8 2 / 2 / ",
+    "note": "补充边界或回归用例。",
+    "strict": true
+  }
+]
