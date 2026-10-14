@@ -1,5 +1,14 @@
 # 31-40 Java 题解索引
 
+代码汇总：[`Solutions031_040.java`](Solutions031_040.java)。文件包含本组十题的代码，以静态内部类隔离各题的状态。
+
+```sh
+javac -encoding UTF-8 Solutions031_040.java
+java Solutions031_040 031
+```
+
+最后一个参数是要运行的题号（031—040），题目输入从标准输入读取。向OJ提交单题时，使用对应题号目录的 `Main.java`。
+
 | 题号 | 题目 | 说明 | 代码 |
 | --- | --- | --- | --- |
 | 031 | 吃苹果 | [题解](031/README.md) | [Java](031/Main.java) |

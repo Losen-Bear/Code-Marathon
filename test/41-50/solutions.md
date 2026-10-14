@@ -1,5 +1,14 @@
 # 41-50 Java 题解索引
 
+代码汇总：[`Solutions041_050.java`](Solutions041_050.java)。文件包含本组十题的代码，以静态内部类隔离各题的状态。
+
+```sh
+javac -encoding UTF-8 Solutions041_050.java
+java Solutions041_050 041
+```
+
+最后一个参数是要运行的题号（041—050），题目输入从标准输入读取。向OJ提交单题时，使用对应题号目录的 `Main.java`。
+
 | 题号 | 题目 | 说明 | 代码 |
 | --- | --- | --- | --- |
 | 041 | 最好逛吃路线 | [题解](041/README.md) | [Java](041/Main.java) |

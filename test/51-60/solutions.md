@@ -1,5 +1,14 @@
 # 51-60 Java 题解索引
 
+代码汇总：[`Solutions051_060.java`](Solutions051_060.java)。文件包含本组十题的代码，以静态内部类隔离各题的状态。
+
+```sh
+javac -encoding UTF-8 Solutions051_060.java
+java Solutions051_060 051
+```
+
+最后一个参数是要运行的题号（051—060），题目输入从标准输入读取。向OJ提交单题时，使用对应题号目录的 `Main.java`。
+
 | 题号 | 题目 | 说明 | 代码 |
 | --- | --- | --- | --- |
 | 051 | 寻找最小M个数 | [题解](051/README.md) | [Java](051/Main.java) |
