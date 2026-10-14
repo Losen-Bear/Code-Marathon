@@ -1,0 +1,26 @@
+[
+  {
+    "name": "sample-1",
+    "input": "1\n",
+    "expected": "6",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "2\n",
+    "expected": "14",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "zero-operations",
+    "input": "0",
+    "expected": "2",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "big-integer",
+    "input": "64",
+    "expected": "73786976294838206462",
+    "note": "补充边界或回归用例。"
+  }
+]

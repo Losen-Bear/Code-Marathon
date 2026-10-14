@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "1\n",
+    "expected": "22",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "23\n",
+    "expected": "122",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "upper-input",
+    "input": "100000000",
+    "expected": "122666666",
+    "note": "补充边界或回归用例。"
+  }
+]

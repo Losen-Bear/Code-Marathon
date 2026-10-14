@@ -1,0 +1,14 @@
+[
+  {
+    "name": "sample-1",
+    "input": "ABCCED\n3\n4\nA B C E\nS F C S\nA D E E\n",
+    "expected": "true",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "no-reuse",
+    "input": "ABA\n1\n2\nA B",
+    "expected": "false",
+    "note": "补充边界或回归用例。"
+  }
+]

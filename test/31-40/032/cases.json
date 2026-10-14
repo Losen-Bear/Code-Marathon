@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "abc\nahbgdc\n",
+    "expected": "true",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "empty-first",
+    "input": "\nabc",
+    "expected": "true",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "wrong-order",
+    "input": "aec\nabcde",
+    "expected": "false",
+    "note": "补充边界或回归用例。"
+  }
+]

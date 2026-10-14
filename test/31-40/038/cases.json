@@ -1,0 +1,26 @@
+[
+  {
+    "name": "sample-1",
+    "input": "0\n",
+    "expected": "2",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "1\n",
+    "expected": "4",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "two",
+    "input": "2",
+    "expected": "4",
+    "note": "补充边界或回归用例。"
+  },
+  {
+    "name": "large",
+    "input": "1000000000",
+    "expected": "0",
+    "note": "补充边界或回归用例。"
+  }
+]

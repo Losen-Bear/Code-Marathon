@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "[3 6 4 1]\n",
+    "expected": "1 4 6 3",
+    "note": "按Hint转换为实际链表输入输出格式。"
+  },
+  {
+    "name": "sample-2",
+    "input": "[0]\n",
+    "expected": "0",
+    "note": "按Hint转换为实际链表输入输出格式。"
+  },
+  {
+    "name": "sample-3",
+    "input": "[]\n",
+    "expected": "",
+    "note": "按Hint转换为实际链表输入输出格式。"
+  }
+]

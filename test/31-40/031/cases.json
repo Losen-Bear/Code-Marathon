@@ -1,0 +1,14 @@
+[
+  {
+    "name": "sample-1",
+    "input": "10\n",
+    "expected": "4",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "one",
+    "input": "1",
+    "expected": "1",
+    "note": "补充边界或回归用例。"
+  }
+]

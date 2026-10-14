@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sample-1",
+    "input": "((aa|aaa)a|(a|aa))aa\n",
+    "expected": "6",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "sample-2",
+    "input": "(a|aa)a\n",
+    "expected": "3",
+    "note": "去除题面展示前缀及解释文字；不改变数值。"
+  },
+  {
+    "name": "concatenation",
+    "input": "a(aa|a)(a|aaa)",
+    "expected": "6",
+    "note": "补充边界或回归用例。"
+  }
+]
