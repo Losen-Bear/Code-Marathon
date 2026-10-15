@@ -1,22 +1,20 @@
 ## Summary
 
-- 补齐061—100题的Java解法，使仓库覆盖全部100题；后40题按每十题增加一个汇总.java文件。
+- 题解页面直接展示全部100道题的完整Java程序，复制后即可作为Main.java编译，避免仅提交方法而出现`class, interface, or enum expected`。
 
 ## Changes
 
-- 新增40个题号目录，提供独立Main.java、思路、正确性证明、复杂度和475个本地用例。
-- 新增Solutions061_070.java至Solutions091_100.java四个汇总文件，支持命令行题号选择运行。
-- 按比赛目录校正071—075、081—089的上传编号；补取075题面并记录085矩阵抄录勘误，上传原文保留。
-- 将汇总生成器和验证器扩展到100题、10组，并增加--range区间验证；更新导航与逐题验证报告。
+- 100个单题README和10个分组solutions.md展示共200个完整Java代码块，均包含import、public class Main、main入口、输入输出及全部辅助方法。
+- 首页增加直接复制提交说明，10份原题记录增加完整程序入口，区分原题Hint模板与可提交程序。
+- 新增tools/sync_java_docs.py，从独立Main.java同步代码块；验证器先检查页面与源码是否一致。保留既有解题思路、算法源码、用例和题意差异说明。
 
 ## Testing
 
-- `python tools/bundle_java.py` — 生成10个汇总文件，前六组内容保持一致。
+- `python tools/sync_java_docs.py --check` — 100份独立程序结构检查通过，120个生成页面与源码一致，覆盖200个完整Java代码块。
 - `python tools/verify.py` — 100份独立代码以Java 8目标编译，1203/1203个用例通过。
-- `python tools/verify.py --bundles` — 10份汇总代码以Java 8目标编译，100题的1203/1203个用例通过。
+- `python tools/verify.py --bundles` — 10份汇总代码以Java 8目标编译，1203/1203个用例通过。
 
 ## Risks / Notes
 
-- 未向OJ提交；本地测试不等于全量评测AC。
-- 067、074、087、090、091、100存在题意约定；部分枚举题缺少规模上限，具体差异及性能限制见VALIDATION.md。
-- 向OJ提交单题时使用相应题号目录的Main.java。
+- 未向OJ提交，不声明全量评测AC；既有题面歧义及性能边界仍见VALIDATION.md。
+- 修改Main.java后需要运行`python tools/sync_java_docs.py`更新题解页面。

@@ -1,23 +1,577 @@
-# 21-30 Java 题解索引
+# 21-30 Java 完整程序与题解索引
 
-代码汇总：[`Solutions021_030.java`](Solutions021_030.java)。文件包含本组十题的代码，以静态内部类隔离各题的状态。
+**提交某一题时，复制下面该题 Java 代码块的全部内容。**每段都是独立的 `public class Main` 程序，已包含输入、输出及所有辅助方法。每次只提交一道题的一个代码块。
 
-```sh
-javac -encoding UTF-8 Solutions021_030.java
-java Solutions021_030 021
+| 题号 | 题目 | 解题说明 | 完整源文件 |
+| --- | --- | --- | --- |
+| [021](#submit-021) | 金字塔挑战 | [题解](021/README.md) | [Main.java](021/Main.java) |
+| [022](#submit-022) | 魔法师分组 | [题解](022/README.md) | [Main.java](022/Main.java) |
+| [023](#submit-023) | 猜猜我在哪 | [题解](023/README.md) | [Main.java](023/Main.java) |
+| [024](#submit-024) | 自行车调度工 | [题解](024/README.md) | [Main.java](024/Main.java) |
+| [025](#submit-025) | 固定范围内最大值 | [题解](025/README.md) | [Main.java](025/Main.java) |
+| [026](#submit-026) | 三元组和为零 | [题解](026/README.md) | [Main.java](026/Main.java) |
+| [027](#submit-027) | 节点加和 | [题解](027/README.md) | [Main.java](027/Main.java) |
+| [028](#submit-028) | 180度旋转数 | [题解](028/README.md) | [Main.java](028/Main.java) |
+| [029](#submit-029) | 分治排序 | [题解](029/README.md) | [Main.java](029/Main.java) |
+| [030](#submit-030) | 后缀表达式求值 | [题解](030/README.md) | [Main.java](030/Main.java) |
+
+本地批量运行可用 [Solutions021_030.java](Solutions021_030.java)；它需要命令行题号参数，向 OJ 提交时请使用下面的单题完整程序。
+
+<a id="submit-021"></a>
+
+## 021 金字塔挑战
+
+[解题思路与格式说明](021/README.md) · [独立源文件](021/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        long[] values = numbers(read()); long total = 1;
+        for (long x : values) total += x;
+        if (total <= 0) { System.out.print(-1); return; }
+        PriorityQueue<Long> negatives = new PriorityQueue<>(); long health = 1; int answer = 0;
+        for (long x : values) {
+            health += x; if (x < 0) negatives.add(x);
+            if (health <= 0) { health -= negatives.remove(); answer++; }
+        }
+        System.out.print(answer);
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
 ```
 
-最后一个参数是要运行的题号（021—030），题目输入从标准输入读取。向OJ提交单题时，使用对应题号目录的 `Main.java`。
+<a id="submit-022"></a>
 
-| 题号 | 题目 | 说明 | 代码 |
-| --- | --- | --- | --- |
-| 021 | 金字塔挑战 | [题解](021/README.md) | [Java](021/Main.java) |
-| 022 | 魔法师分组 | [题解](022/README.md) | [Java](022/Main.java) |
-| 023 | 猜猜我在哪 | [题解](023/README.md) | [Java](023/Main.java) |
-| 024 | 自行车调度工 | [题解](024/README.md) | [Java](024/Main.java) |
-| 025 | 固定范围内最大值 | [题解](025/README.md) | [Java](025/Main.java) |
-| 026 | 三元组和为零 | [题解](026/README.md) | [Java](026/Main.java) |
-| 027 | 节点加和 | [题解](027/README.md) | [Java](027/Main.java) |
-| 028 | 180度旋转数 | [题解](028/README.md) | [Java](028/Main.java) |
-| 029 | 分治排序 | [题解](029/README.md) | [Java](029/Main.java) |
-| 030 | 后缀表达式求值 | [题解](030/README.md) | [Java](030/Main.java) |
+## 022 魔法师分组
+
+[解题思路与格式说明](022/README.md) · [独立源文件](022/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    static long[] sums; static long target; static int groups;
+    static HashMap<Long, Boolean> memo = new HashMap<>();
+    static boolean partition(int mask, int k) {
+        if (Integer.bitCount(mask) < k) return false;
+        if (k == 1) return sums[mask] == target;
+        long key = (long) mask * (groups + 1) + k;
+        if (memo.containsKey(key)) return memo.get(key);
+        int fixed = mask & -mask;
+        for (int subset = mask; subset > 0; subset = (subset - 1) & mask)
+            if ((subset & fixed) != 0 && sums[subset] == target && partition(mask ^ subset, k - 1)) {
+                memo.put(key, true); return true;
+            }
+        memo.put(key, false); return false;
+    }
+    public static void main(String[] args) throws Exception {
+        String[] lines = read().trim().split("\\R"); long[] a = numbers(lines[0]); groups = (int) numbers(lines[1])[0];
+        long total = 0; for (long x : a) total += x;
+        if (groups < 1 || groups > a.length || total % groups != 0) { System.out.print("false"); return; }
+        target = total / groups; sums = new long[1 << a.length];
+        for (int mask = 1; mask < sums.length; mask++) { int bit = mask & -mask; sums[mask] = sums[mask ^ bit] + a[Integer.numberOfTrailingZeros(bit)]; }
+        System.out.print(partition(sums.length - 1, groups));
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-023"></a>
+
+## 023 猜猜我在哪
+
+[解题思路与格式说明](023/README.md) · [独立源文件](023/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    static List<String> forms(String s) {
+        ArrayList<String> result = new ArrayList<>();
+        if (s.length() == 1 || s.charAt(0) != '0') result.add(s);
+        if (s.charAt(s.length() - 1) != '0')
+            for (int i = 1; i < s.length(); i++) if (i == 1 || s.charAt(0) != '0') result.add(s.substring(0, i) + "." + s.substring(i));
+        return result;
+    }
+    public static void main(String[] args) throws Exception {
+        String s = read().replaceAll("[^0-9]", ""); TreeSet<String> result = new TreeSet<>();
+        for (int i = 1; i < s.length(); i++) for (String x : forms(s.substring(0, i)))
+            for (String y : forms(s.substring(i))) result.add(x + ", " + y);
+        System.out.print(String.join("\n", result));
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-024"></a>
+
+## 024 自行车调度工
+
+[解题思路与格式说明](024/README.md) · [独立源文件](024/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        String[] lines = read().trim().split("\\R"); int[] workers = integers(lines[0]), bikes = integers(lines[1]);
+        int m = workers.length / 2, n = bikes.length / 2; long[] dp = new long[1 << n];
+        Arrays.fill(dp, Long.MAX_VALUE / 4); dp[0] = 0; long answer = Long.MAX_VALUE;
+        for (int mask = 0; mask < dp.length; mask++) {
+            int i = Integer.bitCount(mask); if (i == m) { answer = Math.min(answer, dp[mask]); continue; }
+            if (i > m || dp[mask] == Long.MAX_VALUE / 4) continue;
+            for (int j = 0; j < n; j++) if ((mask & (1 << j)) == 0) {
+                long distance = Math.abs((long) workers[2 * i] - bikes[2 * j]) + Math.abs((long) workers[2 * i + 1] - bikes[2 * j + 1]);
+                int next = mask | (1 << j); dp[next] = Math.min(dp[next], dp[mask] + distance);
+            }
+        }
+        System.out.print(answer);
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-025"></a>
+
+## 025 固定范围内最大值
+
+[解题思路与格式说明](025/README.md) · [独立源文件](025/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        int[] input = integers(read()); int n = input[0], k = input[n + 1];
+        if (k <= 0 || k > n) return;
+        ArrayDeque<Integer> queue = new ArrayDeque<>(); StringBuilder out = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            while (!queue.isEmpty() && queue.peekFirst() <= i - k) queue.removeFirst();
+            while (!queue.isEmpty() && input[queue.peekLast() + 1] <= input[i + 1]) queue.removeLast();
+            queue.addLast(i);
+            if (i + 1 >= k) { if (out.length() > 0) out.append(' '); out.append(input[queue.peekFirst() + 1]); }
+        }
+        System.out.print(out);
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-026"></a>
+
+## 026 三元组和为零
+
+[解题思路与格式说明](026/README.md) · [独立源文件](026/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        int[] input = integers(read()); int[] a = Arrays.copyOfRange(input, 1, input[0] + 1); Arrays.sort(a);
+        StringBuilder out = new StringBuilder();
+        for (int i = 0; i < a.length - 2; i++) {
+            if (i > 0 && a[i] == a[i - 1]) continue;
+            int left = i + 1, right = a.length - 1;
+            while (left < right) {
+                long sum = (long) a[i] + a[left] + a[right];
+                if (sum < 0) left++; else if (sum > 0) right--;
+                else {
+                    if (out.length() > 0) out.append('\n');
+                    out.append(a[i]).append(' ').append(a[left]).append(' ').append(a[right]).append(' ');
+                    int x = a[left], y = a[right];
+                    while (left < right && a[left] == x) left++;
+                    while (left < right && a[right] == y) right--;
+                }
+            }
+        }
+        System.out.print(out);
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-027"></a>
+
+## 027 节点加和
+
+[解题思路与格式说明](027/README.md) · [独立源文件](027/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    static class Node { int value; Node next; Node(int value) { this.value = value; } }
+    public static void main(String[] args) throws Exception {
+        String[] lines = read().trim().split("\\R"); int[] a = integers(lines[0]), b = integers(lines[1]);
+        Node dummy = new Node(0), tail = dummy; int carry = 0;
+        for (int i = 0; i < Math.max(a.length, b.length) || carry != 0; i++) {
+            int sum = carry + (i < a.length ? a[i] : 0) + (i < b.length ? b[i] : 0);
+            tail.next = new Node(sum % 10); tail = tail.next; carry = sum / 10;
+        }
+        StringBuilder out = new StringBuilder();
+        for (Node p = dummy.next; p != null; p = p.next) { if (out.length() > 0) out.append(' '); out.append(p.value); }
+        System.out.print(out);
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-028"></a>
+
+## 028 180度旋转数
+
+[解题思路与格式说明](028/README.md) · [独立源文件](028/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    static char[] digits; static BufferedWriter writer; static boolean first = true;
+    static final char[] LOW = {'0', '1', '6', '8', '9'}, HIGH = {'0', '1', '9', '8', '6'};
+    static void generate(int left, int right) throws IOException {
+        if (left > right) { if (!first) writer.write(' '); first = false; writer.write(digits); return; }
+        if (left == right) {
+            for (char c : new char[]{'0', '1', '8'}) { digits[left] = c; generate(left + 1, right - 1); }
+            return;
+        }
+        for (int i = 0; i < LOW.length; i++) {
+            if (left == 0 && LOW[i] == '0') continue;
+            digits[left] = LOW[i]; digits[right] = HIGH[i]; generate(left + 1, right - 1);
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        digits = new char[(int) numbers(read())[0]]; writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        generate(0, digits.length - 1); writer.flush();
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-029"></a>
+
+## 029 分治排序
+
+[解题思路与格式说明](029/README.md) · [独立源文件](029/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    static int[] a, temp;
+    static void sort(int left, int right) {
+        if (right - left <= 1) return; int mid = (left + right) / 2;
+        sort(left, mid); sort(mid, right); int i = left, j = mid, k = left;
+        while (i < mid || j < right) temp[k++] = j == right || (i < mid && a[i] <= a[j]) ? a[i++] : a[j++];
+        System.arraycopy(temp, left, a, left, right - left);
+    }
+    public static void main(String[] args) throws Exception { a = integers(read()); temp = new int[a.length]; sort(0, a.length); System.out.print(join(a)); }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```
+
+<a id="submit-030"></a>
+
+## 030 后缀表达式求值
+
+[解题思路与格式说明](030/README.md) · [独立源文件](030/Main.java)
+
+```java
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        String[] tokens = read().trim().split("\\s+"); ArrayDeque<BigInteger> stack = new ArrayDeque<>();
+        for (String token : tokens) {
+            if (!token.matches("[+*/-]")) { stack.push(new BigInteger(token)); continue; }
+            BigInteger right = stack.pop(), left = stack.pop();
+            switch (token) { case "+": stack.push(left.add(right)); break; case "-": stack.push(left.subtract(right)); break;
+                case "*": stack.push(left.multiply(right)); break; default: stack.push(left.divide(right)); }
+        }
+        System.out.print(stack.pop());
+    }
+
+    static String read() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192];
+        for (int n; (n = System.in.read(buffer)) != -1;) out.write(buffer, 0, n);
+        return new String(out.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+    }
+    static long[] numbers(String s) {
+        Matcher matcher = Pattern.compile("-?\\d+").matcher(s);
+        ArrayList<Long> values = new ArrayList<>();
+        while (matcher.find()) values.add(Long.parseLong(matcher.group()));
+        long[] result = new long[values.size()];
+        for (int i = 0; i < result.length; i++) result[i] = values.get(i);
+        return result;
+    }
+    static int[] integers(String s) {
+        long[] values = numbers(s);
+        int[] result = new int[values.length];
+        for (int i = 0; i < result.length; i++) result[i] = Math.toIntExact(values[i]);
+        return result;
+    }
+    static String join(int[] a) {
+        StringBuilder out = new StringBuilder();
+        for (int x : a) { if (out.length() > 0) out.append(' '); out.append(x); }
+        return out.toString();
+    }
+}
+```

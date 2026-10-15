@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 from contextlib import nullcontext
 import argparse
 from functools import partial
+from sync_java_docs import check_documents
 import ast, json, math, re, subprocess, tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,6 +71,11 @@ def main():
     parser.add_argument('--bundles', action='store_true', help='compile grouped Java files and test problem selectors')
     parser.add_argument('--range', dest='problem_range', default='1-100', help='inclusive problem range, for example 61-100')
     options = parser.parse_args()
+    stale_docs = check_documents()
+    if stale_docs:
+        for path in stale_docs: print(f'Out of sync: {path.relative_to(ROOT)}')
+        print('Run python tools/sync_java_docs.py before verification')
+        return 1
     folders = sorted(p.parent for p in ROOT.glob('test/*/*/Main.java'))
     assert len(folders) == 100, f'Expected 100 solutions, found {len(folders)}'
     first, last = map(int, options.problem_range.split('-'))
