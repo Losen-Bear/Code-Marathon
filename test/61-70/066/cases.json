@@ -1,0 +1,56 @@
+[
+  {
+    "name": "sample-1",
+    "input": "abc\n",
+    "expected": "abc\nacb\nbac\nbca\ncab\ncba",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-2",
+    "input": "aba\n",
+    "expected": "aab\naba\nbaa",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "independent-61-80-a",
+    "input": "a\n",
+    "expected": "a",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  },
+  {
+    "name": "independent-61-80-aaaa",
+    "input": "aaaa\n",
+    "expected": "aaaa",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  },
+  {
+    "name": "independent-61-80-ba",
+    "input": "ba\n",
+    "expected": "ab\nba",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  },
+  {
+    "name": "independent-61-80-aabb",
+    "input": "aabb\n",
+    "expected": "aabb\nabab\nabba\nbaab\nbaba\nbbaa",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  },
+  {
+    "name": "independent-61-80-dcab",
+    "input": "dcab\n",
+    "expected": "abcd\nabdc\nacbd\nacdb\nadbc\nadcb\nbacd\nbadc\nbcad\nbcda\nbdac\nbdca\ncabd\ncadb\ncbad\ncbda\ncdab\ncdba\ndabc\ndacb\ndbac\ndbca\ndcab\ndcba",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  },
+  {
+    "name": "independent-61-80-Aab",
+    "input": "Aab\n",
+    "expected": "Aab\nAba\naAb\nabA\nbAa\nbaA",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  },
+  {
+    "name": "independent-61-80-abaac",
+    "input": "abaac\n",
+    "expected": "aaabc\naaacb\naabac\naabca\naacab\naacba\nabaac\nabaca\nabcaa\nacaab\nacaba\nacbaa\nbaaac\nbaaca\nbacaa\nbcaaa\ncaaab\ncaaba\ncabaa\ncbaaa",
+    "note": "独立验证：生成全部带重复排列，再集合去重排序。"
+  }
+]

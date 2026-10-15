@@ -3,6 +3,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import nullcontext
 import argparse
+from functools import partial
 import ast, json, math, re, subprocess, tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,9 +55,10 @@ def run_one(folder, compiled=None, entry='Main', arguments=()):
                 failures.append({'case':case['name'],'error':str(error)})
     return {'id':folder.name,'count':len(cases),'passed':len(cases)-len(failures),'failures':failures}
 
-def run_bundle(source):
+def run_bundle(source, first=1, last=100):
     folders = sorted(p.parent for p in source.parent.glob('*/Main.java'))
     assert len(folders) == 10, f'Expected ten solutions in {source.parent}'
+    folders = [folder for folder in folders if first <= int(folder.name) <= last]
     with tempfile.TemporaryDirectory(prefix='marathon-bundle-') as temp:
         compilation = subprocess.run(['javac','-J-Duser.language=en','--release','8','-encoding','UTF-8','-d',temp,str(source)],capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=60)
         if compilation.returncode:
@@ -65,15 +67,22 @@ def run_bundle(source):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--bundles', action='store_true', help='compile the six grouped Java files and test all problem selectors')
+    parser.add_argument('--bundles', action='store_true', help='compile grouped Java files and test problem selectors')
+    parser.add_argument('--range', dest='problem_range', default='1-100', help='inclusive problem range, for example 61-100')
     options = parser.parse_args()
     folders = sorted(p.parent for p in ROOT.glob('test/*/*/Main.java'))
-    assert len(folders) == 60, f'Expected 60 solutions, found {len(folders)}'
+    assert len(folders) == 100, f'Expected 100 solutions, found {len(folders)}'
+    first, last = map(int, options.problem_range.split('-'))
+    if not 1 <= first <= last <= 100: parser.error('range must be within 1-100')
+    folders = [folder for folder in folders if first <= int(folder.name) <= last]
+    assert len(folders) == last-first+1
     with ThreadPoolExecutor(max_workers=4) as pool:
         if options.bundles:
             bundles = sorted(ROOT.glob('test/*/Solutions*.java'))
-            assert len(bundles) == 6, f'Expected six bundles, found {len(bundles)}'
-            results = [result for group in pool.map(run_bundle,bundles) for result in group]
+            assert len(bundles) == 10, f'Expected ten bundles, found {len(bundles)}'
+            groups = {folder.parent for folder in folders}
+            bundles = [source for source in bundles if source.parent in groups]
+            results = [result for group in pool.map(partial(run_bundle,first=first,last=last),bundles) for result in group]
         else:
             results = list(pool.map(run_one,folders))
     for result in results:

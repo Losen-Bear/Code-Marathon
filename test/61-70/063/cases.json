@@ -1,0 +1,68 @@
+[
+  {
+    "name": "sample-1",
+    "input": "6 5 3 2 3 4 1 2\n4\n",
+    "expected": "7",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-2",
+    "input": "1 2 3 6 3 8 1 6\n4\n",
+    "expected": "8",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "independent-61-80-0",
+    "input": "1 1\n2\n",
+    "expected": "1",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-1",
+    "input": "0 0 0\n2\n",
+    "expected": "0",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-2",
+    "input": "7 2 3 1\n4\n",
+    "expected": "7",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-3",
+    "input": "100 1 1 1\n2\n",
+    "expected": "100",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-4",
+    "input": "2000000000 2000000000 2000000000 2000000000\n2\n",
+    "expected": "4000000000",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-5",
+    "input": "1 11 14 14\n3\n",
+    "expected": "14",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-6",
+    "input": "8 0 13 4 9\n4\n",
+    "expected": "13",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-7",
+    "input": "2 13 8 10 6 5\n5\n",
+    "expected": "13",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  },
+  {
+    "name": "independent-61-80-8",
+    "input": "4 7 14 9 14\n4\n",
+    "expected": "14",
+    "note": "独立验证：枚举全部k^n种有标号分配，直接统计每人负担。"
+  }
+]

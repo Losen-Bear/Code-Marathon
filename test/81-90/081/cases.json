@@ -1,0 +1,68 @@
+[
+  {
+    "name": "sample-1",
+    "input": "4\ncha\nr\nact\ners\n",
+    "expected": "6",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "oracle-1",
+    "input": "1\na\n",
+    "expected": "1",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-2",
+    "input": "1\naa\n",
+    "expected": "0",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-3",
+    "input": "3\nab\nab\ncd\n",
+    "expected": "4",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-4",
+    "input": "3\n\na\nbc\n",
+    "expected": "3",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-5",
+    "input": "4\n中文\n数码\n文数\nA1\n",
+    "expected": "6",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-6",
+    "input": "3\ndd\na\ne\n",
+    "expected": "2",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-7",
+    "input": "3\ndeff\nbdfa\neb\n",
+    "expected": "4",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-8",
+    "input": "2\nacf\nce\n",
+    "expected": "3",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-9",
+    "input": "5\naa\ne\ndbaf\ndaaf\nb\n",
+    "expected": "5",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  },
+  {
+    "name": "oracle-10",
+    "input": "6\nd\nda\nebec\ndb\nac\na\n",
+    "expected": "4",
+    "note": "固定随机种子20261015；独立预期：枚举所有字符串子集并直接检查拼接字符是否重复。"
+  }
+]

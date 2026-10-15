@@ -1,0 +1,68 @@
+[
+  {
+    "name": "sample-1",
+    "input": "6\nA\nA\nA\nB\nB\nB\n2\n",
+    "expected": "8",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "oracle-1",
+    "input": "1\nA\n0\n",
+    "expected": "1",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-2",
+    "input": "3\nA\nA\nA\n0\n",
+    "expected": "3",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-3",
+    "input": "3\nA\nA\nA\n3\n",
+    "expected": "9",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-4",
+    "input": "3\nA\nB\nC\n8\n",
+    "expected": "3",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-5",
+    "input": "6\nA\nA\nB\nB\nC\nC\n2\n",
+    "expected": "6",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-6",
+    "input": "7\nC\nA\nA\nC\nA\nC\nB\n1\n",
+    "expected": "7",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-7",
+    "input": "6\nC\nB\nC\nC\nC\nC\n3\n",
+    "expected": "17",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-8",
+    "input": "4\nA\nA\nB\nC\n3\n",
+    "expected": "5",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-9",
+    "input": "6\nA\nA\nB\nA\nC\nC\n2\n",
+    "expected": "7",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  },
+  {
+    "name": "oracle-10",
+    "input": "4\nB\nA\nA\nB\n2\n",
+    "expected": "5",
+    "note": "固定随机种子20261015；独立预期：BFS枚举每个时刻执行任意可用任务或待命，取最短完成时间。"
+  }
+]

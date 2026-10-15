@@ -1,0 +1,62 @@
+[
+  {
+    "name": "sample-1",
+    "input": "3\n3\n",
+    "expected": "213",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-2",
+    "input": "4\n9\n",
+    "expected": "2314",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-3",
+    "input": "3\n1\n",
+    "expected": "123",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "independent-61-80-1-1",
+    "input": "1\n1\n",
+    "expected": "1",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  },
+  {
+    "name": "independent-61-80-3-6",
+    "input": "3\n6\n",
+    "expected": "321",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  },
+  {
+    "name": "independent-61-80-4-1",
+    "input": "4\n1\n",
+    "expected": "1234",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  },
+  {
+    "name": "independent-61-80-4-24",
+    "input": "4\n24\n",
+    "expected": "4321",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  },
+  {
+    "name": "independent-61-80-5-60",
+    "input": "5\n60\n",
+    "expected": "32541",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  },
+  {
+    "name": "independent-61-80-6-401",
+    "input": "6\n401\n",
+    "expected": "425613",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  },
+  {
+    "name": "independent-61-80-9-362880",
+    "input": "9\n362880\n",
+    "expected": "987654321",
+    "note": "独立验证：枚举并按序定位小规模排列；n=9最后一项独立为逆序。"
+  }
+]

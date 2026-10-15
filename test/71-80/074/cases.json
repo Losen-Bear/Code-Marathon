@@ -1,0 +1,68 @@
+[
+  {
+    "name": "sample-1",
+    "input": "10\n",
+    "expected": "36",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-2",
+    "input": "3\n",
+    "expected": "2",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-3",
+    "input": "2\n",
+    "expected": "1",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "independent-61-80-4",
+    "input": "4\n",
+    "expected": "4",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-5",
+    "input": "5\n",
+    "expected": "6",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-6",
+    "input": "6\n",
+    "expected": "9",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-7",
+    "input": "7\n",
+    "expected": "12",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-8",
+    "input": "8\n",
+    "expected": "18",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-11",
+    "input": "11\n",
+    "expected": "54",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-20",
+    "input": "20\n",
+    "expected": "1458",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  },
+  {
+    "name": "independent-61-80-57",
+    "input": "57\n",
+    "expected": "162261460",
+    "note": "独立验证：枚举非递减整数拆分，至少拆两份，乘积用Python大整数后取模。"
+  }
+]

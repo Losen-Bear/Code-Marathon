@@ -1,0 +1,62 @@
+[
+  {
+    "name": "sample-1",
+    "input": "68\n",
+    "expected": "yes",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-2",
+    "input": "2\n",
+    "expected": "no",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "independent-61-80-0",
+    "input": "0\n",
+    "expected": "no",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-1",
+    "input": "1\n",
+    "expected": "yes",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-4",
+    "input": "4\n",
+    "expected": "no",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-7",
+    "input": "7\n",
+    "expected": "yes",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-10",
+    "input": "10\n",
+    "expected": "yes",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-19",
+    "input": "19\n",
+    "expected": "yes",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-2147483647",
+    "input": "2147483647\n",
+    "expected": "no",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  },
+  {
+    "name": "independent-61-80-4294967295",
+    "input": "4294967295\n",
+    "expected": "no",
+    "note": "独立验证：Floyd快慢指针判环，不使用访问集合。"
+  }
+]

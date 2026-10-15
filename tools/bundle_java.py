@@ -5,7 +5,7 @@ import re, textwrap
 ROOT = Path(__file__).resolve().parents[1]
 
 def main():
-    for start in range(1, 61, 10):
+    for start in range(1, 101, 10):
         end = start + 9
         group = ROOT / 'test' / f'{start}-{end}'
         classname = f'Solutions{start:03d}_{end:03d}'

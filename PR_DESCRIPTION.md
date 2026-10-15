@@ -1,20 +1,22 @@
 ## Summary
 
-- 将001—060题的Java代码按每十题汇总为一个可编译的源文件，方便在对应分组目录中阅读和运行。
+- 补齐061—100题的Java解法，使仓库覆盖全部100题；后40题按每十题增加一个汇总.java文件。
 
 ## Changes
 
-- 增加六个SolutionsXXX_YYY.java，以静态内部类隔离题目代码，用命令行题号选择运行。
-- 增加tools/bundle_java.py，可从独立Main.java重新生成汇总文件。
-- 更新分组索引、README导航及验证脚本的--bundles选项。
-- 原题面、独立Main.java和本地用例保持可用。
+- 新增40个题号目录，提供独立Main.java、思路、正确性证明、复杂度和475个本地用例。
+- 新增Solutions061_070.java至Solutions091_100.java四个汇总文件，支持命令行题号选择运行。
+- 按比赛目录校正071—075、081—089的上传编号；补取075题面并记录085矩阵抄录勘误，上传原文保留。
+- 将汇总生成器和验证器扩展到100题、10组，并增加--range区间验证；更新导航与逐题验证报告。
 
 ## Testing
 
-- `python tools/bundle_java.py` — 生成六个汇总文件。
-- `python tools/verify.py --bundles` — 六文件Java 8兼容编译、60题的728个已有用例全部通过。
+- `python tools/bundle_java.py` — 生成10个汇总文件，前六组内容保持一致。
+- `python tools/verify.py` — 100份独立代码以Java 8目标编译，1203/1203个用例通过。
+- `python tools/verify.py --bundles` — 10份汇总代码以Java 8目标编译，100题的1203/1203个用例通过。
 
 ## Risks / Notes
 
-- 向OJ提交单题时使用题号目录中的Main.java；汇总文件用于本地选择题号运行。
-- 题面差异及算法验证限制仍见VALIDATION.md。
+- 未向OJ提交；本地测试不等于全量评测AC。
+- 067、074、087、090、091、100存在题意约定；部分枚举题缺少规模上限，具体差异及性能限制见VALIDATION.md。
+- 向OJ提交单题时使用相应题号目录的Main.java。

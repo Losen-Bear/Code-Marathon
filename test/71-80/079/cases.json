@@ -1,0 +1,80 @@
+[
+  {
+    "name": "sample-1",
+    "input": "1,2,3\n2,4\n",
+    "expected": "2",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "sample-2",
+    "input": "1,2\n3,4\n",
+    "expected": "2.5",
+    "note": "去除展示解释；编号按比赛目录校正。"
+  },
+  {
+    "name": "independent-61-80-0",
+    "input": "\n7\n",
+    "expected": "7",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-1",
+    "input": "8\n\n",
+    "expected": "8",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-2",
+    "input": "\n-2,-1\n",
+    "expected": "-1.5",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-3",
+    "input": "1,1\n1,1\n",
+    "expected": "1",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-4",
+    "input": "-2147483648\n2147483647\n",
+    "expected": "-0.5",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-5",
+    "input": "9223372036854775806\n9223372036854775807\n",
+    "expected": "9223372036854775806.5",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-6",
+    "input": "\n-16,-14,13,14\n",
+    "expected": "-0.5",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-7",
+    "input": "4,9,11,13\n-18,1,2\n",
+    "expected": "4",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-8",
+    "input": "-17,0,5,8,9,12\n11\n",
+    "expected": "8",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-9",
+    "input": "-10,-7,-4,18\n-11,-11,-8,2,3,6,7\n",
+    "expected": "-4",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  },
+  {
+    "name": "independent-61-80-10",
+    "input": "-15,-10,-8,-4,15,18\n-16,6,15\n",
+    "expected": "-4",
+    "note": "独立验证：合并后完整排序取中间元素，用Fraction避免数值和舍入误差。"
+  }
+]
