@@ -1,20 +1,20 @@
 ## Summary
 
-- 题解页面直接展示全部100道题的完整Java程序，复制后即可作为Main.java编译，避免仅提交方法而出现`class, interface, or enum expected`。
+- 打开任一十题分组目录，即可在目录首页看到十道题的完整Java程序，按题号跳转并复制提交，无需逐题打开。
 
 ## Changes
 
-- 100个单题README和10个分组solutions.md展示共200个完整Java代码块，均包含import、public class Main、main入口、输入输出及全部辅助方法。
-- 首页增加直接复制提交说明，10份原题记录增加完整程序入口，区分原题Hint模板与可提交程序。
-- 新增tools/sync_java_docs.py，从独立Main.java同步代码块；验证器先检查页面与源码是否一致。保留既有解题思路、算法源码、用例和题意差异说明。
+- 新增10个分组README.md，每页展开10份独立Main程序；既有solutions.md保留相同完整程序。
+- 首页主要入口改为“十题完整程序”，将命令行运行的汇总.java文件标为本地批量运行文件。
+- 同步工具同时生成目录首页，保持全部300个代码块与100份Main.java一致。
 
 ## Testing
 
-- `python tools/sync_java_docs.py --check` — 100份独立程序结构检查通过，120个生成页面与源码一致，覆盖200个完整Java代码块。
-- `python tools/verify.py` — 100份独立代码以Java 8目标编译，1203/1203个用例通过。
-- `python tools/verify.py --bundles` — 10份汇总代码以Java 8目标编译，1203/1203个用例通过。
+- `python tools/sync_java_docs.py --check` — 130个生成页面与源码一致，覆盖300个完整Java代码块。
+- 逐项核对全部300个代码块与源码一致，10个目录首页各含10份完整程序，链接和题号锚点有效。
+- `git diff --check` — 通过。
 
 ## Risks / Notes
 
-- 未向OJ提交，不声明全量评测AC；既有题面歧义及性能边界仍见VALIDATION.md。
+- 本次未改Java源码，未重复执行2026-10-16已通过的1203例算法评测；详情见VALIDATION.md。
 - 修改Main.java后需要运行`python tools/sync_java_docs.py`更新题解页面。

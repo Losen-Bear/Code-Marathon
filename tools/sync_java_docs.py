@@ -55,7 +55,9 @@ def generated_documents():
             raise ValueError(f'{group}: expected consecutive problem numbers')
         bundle = f'Solutions{first:03d}_{last:03d}.java'
         intro = (
-            f'# {first}-{last} Java 完整程序与题解索引\n\n'
+            f'# {first:03d}—{last:03d} 完整 Java 程序汇总\n\n'
+            '本页已展开本组十道题的完整程序，无需逐个打开题目。点击下表题号可跳到对应代码，'
+            '再使用代码块右上角的复制按钮复制整份程序。\n\n'
             '**提交某一题时，复制下面该题 Java 代码块的全部内容。**'
             '每段都是独立的 `public class Main` 程序，已包含输入、输出及所有辅助方法。'
             '每次只提交一道题的一个代码块。\n\n'
@@ -77,6 +79,8 @@ def generated_documents():
                 + code_block(code) + '\n'
             )
         documents[group / 'solutions.md'] = intro.rstrip() + '\n'
+        # GitHub displays README.md automatically when opening a group directory.
+        documents[group / 'README.md'] = intro.rstrip() + '\n'
 
         statements = list(group.glob('test*.md'))
         if len(statements) != 1:
@@ -115,7 +119,7 @@ def main():
     documents = generated_documents()
     stale = []
     for path, expected in documents.items():
-        if path.read_text(encoding='utf-8') != expected:
+        if not path.exists() or path.read_text(encoding='utf-8') != expected:
             stale.append(path)
             if not options.check:
                 path.write_text(expected, encoding='utf-8')
@@ -124,7 +128,7 @@ def main():
             print('Out of sync:', path.relative_to(ROOT))
         print('Run python tools/sync_java_docs.py')
         return 1
-    print(f'100 independent Main programs; 200 complete Java code blocks; '
+    print(f'100 independent Main programs; 300 complete Java code blocks; '
           f'{len(documents)} documentation files checked; {len(stale)} updated.')
     return 0
 
